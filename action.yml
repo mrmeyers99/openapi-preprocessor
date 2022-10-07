@@ -1,0 +1,21 @@
+name: 'OpenAPI Pre-Processor'
+description: 'Runs openapi-preprocessor via GitHub Actions.'
+inputs:
+  options:
+    description: 'Options to pass to openapi-preprocessor command'
+    required: false
+    default: ''
+  input_file:
+    description: 'File to pre-process'
+    required: true
+  output_file:
+    description: 'File to store processed spec'
+    required: true
+
+runs:
+  using: 'docker'
+  image: './Dockerfile'
+  args:
+    - ${{ inputs.options }}
+    - ${{ inputs.input_file }}
+    - ${{ inputs.output_file }}
