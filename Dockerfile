@@ -1,4 +1,4 @@
-FROM golang:1.19.0-alpine3.16
+FROM golang:1.23-alpine
 
 RUN apk --update --no-cache add git make bash
 
